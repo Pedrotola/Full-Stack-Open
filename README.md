@@ -4,3 +4,10 @@
 
 1. General info 
 2. Fundamentals of Web apps
+
+## Part 1 - Introduction to React
+
+1. Introduction to React
+2. JavaScript
+3. Component state, event handlers
+4. A more complex state, debugging React apps
