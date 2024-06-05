@@ -2,12 +2,14 @@ import { useState } from 'react'
 
 const Button = ({handleClick, text}) => (<button onClick={handleClick}>{text}</button>)
 
+const Header = ({text}) => (<h1>{text}</h1>)
+
 const MostVotes = ({points, anecdotes})=>{
   const maxPoints = Math.max(...points)
   const anecdoteMostVotes = points.indexOf(maxPoints)
   return(   
     <div>
-      <h1>Anecdote with most votes</h1>
+      <Header text='Anecdote with most votes'/>
       <p>{anecdotes[anecdoteMostVotes]}</p>
       <p>has {points[anecdoteMostVotes]} votes</p>
     </div>
@@ -39,7 +41,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Anecdote of the day</h1>
+      <Header text='Anecdote of the day'/>
       {anecdotes[selected]}
       <p>has {points[selected]} votes</p>
       <Button handleClick={handleVoteClick} text='vote'/>
