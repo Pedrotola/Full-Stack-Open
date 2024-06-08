@@ -1,17 +1,17 @@
-# Ejercicios 1.1 - 1.14
+# Exercises 1.1 - 1.14
 
-## Envío de Soluciones
+## Solution Submission
 
-Envía tus soluciones a los ejercicios enviando primero tu código a GitHub y luego marcando los ejercicios completados en el sistema de envío de ejercicios.
+Submit your solutions to the exercises by first pushing your code to GitHub and then marking the exercises as completed in the exercise submission system.
 
-- Recuerda, envía todos los ejercicios de una parte en una sola presentación. Una vez que hayas enviado tus soluciones para una parte, ya no podrás enviar más ejercicios a esa parte.
-- Algunos de los ejercicios funcionan en la misma aplicación. En estos casos, es suficiente enviar solo la versión final de la aplicación. Si lo deseas, puedes realizar un commit después de cada ejercicio terminado, pero no es obligatorio.
+- Remember, submit all the exercises for a part in a single submission. Once you have submitted your solutions for a part, you will no longer be able to submit more exercises for that part.
+- Some exercises work in the same application. In these cases, it is enough to submit only the final version of the application. If you wish, you can commit after each completed exercise, but it is not mandatory.
 
-## Ejercicios 1.1 - 1.5: Información del Curso
+## Exercises 1.1 - 1.5: Course Information
 
-### Ejercicio 1.1: Información del Curso, paso 1
+### Exercise 1.1: Course Information, Step 1
 
-Modifica el componente `App` para que muestre información sobre el curso y partes:
+Modify the `App` component to display information about the course and parts:
 
 ```jsx
 const App = () => {
@@ -36,13 +36,13 @@ const App = () => {
 export default App;
 ```
 
-### Ejercicio 1.2: Información del Curso, paso 2
+### Exercise 1.2: Course Information, Step 2
 
-Refactoriza el código del ejercicio anterior en nuevos componentes `Header`, `Content` y `Total`.
+Refactor the code from the previous exercise into new components `Header`, `Content`, and `Total`.
 
-### Ejercicio 1.3: Información del Curso, paso 3
+### Exercise 1.3: Course Information, Step 3
 
-Usa objetos en lugar de variables sueltas:
+Use objects instead of loose variables:
 
 ```jsx
 const App = () => {
@@ -70,9 +70,9 @@ const App = () => {
 };
 ```
 
-### Ejercicio 1.4: Información del Curso, paso 4
+### Exercise 1.4: Course Information, Step 4
 
-Refactoriza los objetos en un array:
+Refactor the objects into an array:
 
 ```jsx
 const App = () => {
@@ -102,9 +102,9 @@ const App = () => {
 };
 ```
 
-### Ejercicio 1.5: Información del Curso, paso 5
+### Exercise 1.5: Course Information, Step 5
 
-Cambia el curso y sus partes a un solo objeto JavaScript:
+Change the course and its parts to a single JavaScript object:
 
 ```jsx
 const App = () => {
@@ -136,9 +136,9 @@ const App = () => {
 };
 ```
 
-## Ejercicio 1.6: Unicafe, paso 1
+## Exercise 1.6: Unicafe, Step 1
 
-Implementa una aplicación web para recopilar comentarios de los clientes con tres opciones: good (bueno), neutral y bad (malo). La aplicación debe mostrar el número total de comentarios recopilados para cada categoría. Tu aplicación final podría verse así:
+Implement a web application to collect customer feedback with three options: good, neutral, and bad. The application should display the total number of feedback collected for each category. Your final application might look like this:
 
 ```jsx
 import { useState } from 'react';
@@ -150,7 +150,7 @@ const App = () => {
 
   return (
     <div>
-      // código aquí
+      // code here
     </div>
   );
 };
@@ -158,29 +158,29 @@ const App = () => {
 export default App;
 ```
 
-## Ejercicio 1.7: Unicafe, paso 2
+## Exercise 1.7: Unicafe, Step 2
 
-Amplía tu aplicación para que muestre más estadísticas sobre los comentarios recopilados: el número total de comentarios, la puntuación promedio y el porcentaje de comentarios positivos.
+Extend your application to show more statistics about the feedback collected: the total number of feedback, the average score, and the percentage of positive feedback.
 
-## Ejercicio 1.8: Unicafe, paso 3
+## Exercise 1.8: Unicafe, Step 3
 
-Refactoriza tu aplicación para que la visualización de las estadísticas se extraiga en su propio componente `Statistics`. El estado de la aplicación debe permanecer en el componente raíz `App`.
+Refactor your application so that the display of statistics is extracted into its own `Statistics` component. The state of the application should remain in the root `App` component.
 
-## Ejercicio 1.9: Unicafe, paso 4
+## Exercise 1.9: Unicafe, Step 4
 
-Cambia tu aplicación para mostrar estadísticas solo una vez que se hayan recopilado los comentarios.
+Change your application to show statistics only once feedback has been collected.
 
-## Ejercicio 1.10: Unicafe, paso 5
+## Exercise 1.10: Unicafe, Step 5
 
-Extrae los componentes `Button` para los botones y `StatisticLine` para mostrar una única estadística. 
+Extract `Button` components for the buttons and `StatisticLine` for displaying a single statistic.
 
-## Ejercicio 1.11*: Unicafe, paso 6
+## Exercise 1.11*: Unicafe, Step 6
 
-Muestra las estadísticas en una tabla HTML.
+Display the statistics in an HTML table.
 
-## Ejercicio 1.12*: Anecdotes, paso 1
+## Exercise 1.12*: Anecdotes, Step 1
 
-Expande la siguiente aplicación agregando un botón para mostrar una anécdota aleatoria del campo de la ingeniería de software.
+Expand the following application by adding a button to show a random anecdote from the field of software engineering.
 
 ```jsx
 import { useState } from 'react';
@@ -209,10 +209,10 @@ const App = () => {
 export default App;
 ```
 
-## Ejercicio 1.13*: Anecdotes, paso 2
+## Exercise 1.13*: Anecdotes, Step 2
 
-Expande tu aplicación para que puedas votar por la anécdota mostrada. Almacena los votos de cada anécdota en un array u objeto en el estado del componente.
+Expand your application to allow voting for the displayed anecdote. Store the votes for each anecdote in an array or object in the component state.
 
-## Ejercicio 1.14*: Anecdotes, paso 3
+## Exercise 1.14*: Anecdotes, Step 3
 
-Implementa la versión final de la aplicación que muestra la anécdota con el mayor número de votos. Si varias anécdotas empatan en el primer lugar, es suficiente con mostrar solo una de ellas.
+Implement the final version of the application that displays the anecdote with the highest number of votes. If several anecdotes tie for first place, it is sufficient to display only one of them.
