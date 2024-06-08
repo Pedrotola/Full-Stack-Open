@@ -68,6 +68,7 @@ const App = () => {
     </div>
   );
 };
+
 ```
 
 ### Exercise 1.4: Course Information, Step 4
