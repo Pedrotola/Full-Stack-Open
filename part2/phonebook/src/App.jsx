@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Persons from "./components/Persons";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
+import personService from "./services/persons";
 
 const App = () => {
 
@@ -11,28 +11,41 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
 
-  const hook = () =>{
-    axios.get('http://localhost:3001/persons')
-    .then(respose =>{
-      setPersons(respose.data)
-    })
-  }
+  const hooks = () => {personService.getAll().then(intialPerson => setPersons(intialPerson))}
 
-  useEffect(hook, [])
+  useEffect(hooks, [])
 
   const addPerson = (event) =>{
     event.preventDefault()
-    if (persons.some((person) => person.name === newName)){
-      alert(`${newName} is already added to phonebook`)
+    if ( persons.some((person) => person.name === newName)){
+      if (window.confirm(`${newName} is already add to phonebook, replace the old number with a new one?`)){
+        const person = persons.find((person) => person.name === newName)
+        const personChanged = { ...person, number: newNumber}
+        personService.update(person.id, personChanged)
+          .then(returnedPerson => {
+            setPersons(persons.map(p => p.id != person.id ? p : returnedPerson))
+            setNewName('')
+            setNewNumber('')
+          })
+          .catch(error=>{
+            console.error(`An error occurred when updating a person ${error}`);
+          })
+      }
     }
     else {
       const personObject = {
         name: newName,
         number: newNumber
       }
-      setPersons(persons.concat(personObject))
-      setNewName('')
-      setNewNumber('')
+      personService.create(personObject)
+        .then(returnedPerson =>{
+          setPersons(persons.concat(returnedPerson))
+          setNewName('')
+          setNewNumber('')
+        })
+        .catch(error=>{
+          console.error(`An error occurred while creating a person ${error}`);
+        })
     }
   }
 
@@ -42,15 +55,29 @@ const App = () => {
   const personsFilter = filter === ''
     ? persons
     : persons.filter(person => person.name.toLocaleLowerCase().includes(filter.toLowerCase()))
-  
+
+    const handleDeleteClick = (id, name) =>{
+      if (window.confirm(`Delete ${name}?`)) {
+        personService.remove(id)
+          .then(setPersons(persons.filter(person => person.id !=id )))
+          .catch(error=>{
+          console.error(`An error occurred while deleting the person ${error}`);
+        })
+      }   
+    }
+
   return (
     <div>
       <h2>Phonebook</h2>
       <Filter filter={filter} handleChange={handleFilterChange}/>
       <h3>add a new</h3>
-      <PersonForm addPerson={addPerson} newName={newName} handleNameChange={handleNameChange} newNumber={newNumber} handleNumberChange={handleNumberChange}/>
+      <PersonForm addPerson={addPerson} 
+        newName={newName} 
+        handleNameChange={handleNameChange} 
+        newNumber={newNumber} 
+        handleNumberChange={handleNumberChange}/>
       <h3>Numbers</h3>
-      <Persons personsFilter={personsFilter}/>
+      <Persons personsFilter={personsFilter} handleDeleteClick={handleDeleteClick}/>
     </div>
   );
 }
