@@ -27,7 +27,6 @@ const App = () => {
           .then(returnedPerson => {
             setPersons(persons.map(p => p.id != person.id ? p : returnedPerson))
             setMessage({text:`${newName} has updated the number`, type:'success'})
-            console.log(message);
             setTimeout(() => {setMessage({text: null})}, 5000)
             setNewName('')
             setNewNumber('')
@@ -46,9 +45,7 @@ const App = () => {
         .then(returnedPerson =>{
           setPersons(persons.concat(returnedPerson))
           setMessage({text:`Added ${newName}`, type:'success'})
-          console.log(newName);
           setTimeout(() => {setMessage({text: null})}, 5000)
-          console.log(message);
           setNewName('')
           setNewNumber('')
         })
