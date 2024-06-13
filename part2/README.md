@@ -242,7 +242,7 @@ newName + ' is already added to phonebook'
 
 Using template strings is the more idiomatic option and the sign of a true JavaScript professional.
 
-2.8: The Phonebook Step 3
+# 2.8: The Phonebook Step 3
 Expand your application by allowing users to add phone numbers to the phone book. You will need to add a second input element to the form (along with its own event handler):
 
 ```jsx
@@ -256,12 +256,14 @@ Expand your application by allowing users to add phone numbers to the phone book
 At this point, the application could look something like this. The image also displays the application's state with the help of React developer tools:
 
 ## 2.8 sample screenshot
+
 ## 2.9*: The Phonebook Step 4
 Implement a search field that can be used to filter the list of people by name:
 
 2.9 search field
 You can implement the search field as an input element that is placed outside the HTML form. The filtering logic shown in the image is case insensitive, meaning that the search term arto also returns results that contain Arto with an uppercase A.
 
+> [!NOTE]
 > NB: When you are working on new functionality, it's often useful to "hardcode" some dummy data into your application, e.g.
 
 ```jsx
@@ -309,4 +311,5 @@ const App = () => {
 }
 ```
 
+> [!NOTE]
 > NB: You might run into problems in this exercise if you define your components "in the wrong place". Now would be a good time to rehearse the chapter do not define a component in another component from the last part.

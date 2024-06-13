@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Persons from "./components/Persons";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
+import Notification from "./components/Notification"
 import personService from "./services/persons";
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
+  const [message, setMessage] = useState({text:null, type:'success'})
 
   const hooks = () => {personService.getAll().then(intialPerson => setPersons(intialPerson))}
 
@@ -24,6 +26,9 @@ const App = () => {
         personService.update(person.id, personChanged)
           .then(returnedPerson => {
             setPersons(persons.map(p => p.id != person.id ? p : returnedPerson))
+            setMessage({text:`${newName} has updated the number`, type:'success'})
+            console.log(message);
+            setTimeout(() => {setMessage({text: null})}, 5000)
             setNewName('')
             setNewNumber('')
           })
@@ -40,6 +45,10 @@ const App = () => {
       personService.create(personObject)
         .then(returnedPerson =>{
           setPersons(persons.concat(returnedPerson))
+          setMessage({text:`Added ${newName}`, type:'success'})
+          console.log(newName);
+          setTimeout(() => {setMessage({text: null})}, 5000)
+          console.log(message);
           setNewName('')
           setNewNumber('')
         })
@@ -61,14 +70,17 @@ const App = () => {
         personService.remove(id)
           .then(setPersons(persons.filter(person => person.id !=id )))
           .catch(error=>{
-          console.error(`An error occurred while deleting the person ${error}`);
-        })
+            console.error(`An error occurred while deleting the person ${error}`);
+            setMessage({text: `Information of ${name} has already been removed from server`, type:'error'})
+            setTimeout(() => {setMessage({text: null})}, 5000)
+          })
       }   
     }
 
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification messages={message}/>
       <Filter filter={filter} handleChange={handleFilterChange}/>
       <h3>add a new</h3>
       <PersonForm addPerson={addPerson} 
