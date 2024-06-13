@@ -242,7 +242,7 @@ newName + ' is already added to phonebook'
 
 Using template strings is the more idiomatic option and the sign of a true JavaScript professional.
 
-# 2.8: The Phonebook Step 3
+## 2.8: The Phonebook Step 3
 Expand your application by allowing users to add phone numbers to the phone book. You will need to add a second input element to the form (along with its own event handler):
 
 ```jsx
@@ -313,3 +313,168 @@ const App = () => {
 
 > [!NOTE]
 > NB: You might run into problems in this exercise if you define your components "in the wrong place". Now would be a good time to rehearse the chapter do not define a component in another component from the last part.
+
+# Exercise 2.11.
+
+## 2.11: The Phonebook Step 6
+
+We continue with developing the phonebook. Store the initial state of the application in the file db.json, which should be placed in the root of the project.
+
+```jsx
+{
+  "persons":[
+    { 
+      "name": "Arto Hellas", 
+      "number": "040-123456",
+      "id": 1
+    },
+    { 
+      "name": "Ada Lovelace", 
+      "number": "39-44-5323523",
+      "id": 2
+    },
+    { 
+      "name": "Dan Abramov", 
+      "number": "12-43-234345",
+      "id": 3
+    },
+    { 
+      "name": "Mary Poppendieck", 
+      "number": "39-23-6423122",
+      "id": 4
+    }
+  ]
+}
+```
+
+Start json-server on port 3001 and make sure that the server returns the list of people by going to the address http://localhost:3001/persons in the browser.
+
+If you receive the following error message:
+
+```
+events.js:182
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE 0.0.0.0:3001
+    at Object._errnoException (util.js:1019:11)
+    at _exceptionWithHostPort (util.js:1041:20)
+```
+
+it means that port 3001 is already in use by another application, e.g. in use by an already running json-server. Close the other application, or change the port in case that doesn't work.
+
+Modify the application such that the initial state of the data is fetched from the server using the axios-library. Complete the fetching with an [Effect hook](https://react.dev/reference/react/useEffect).
+
+# Exercises 2.12.-2.15.
+
+## 2.12: The Phonebook step 7
+
+Let's return to our phonebook application.
+
+Currently, the numbers that are added to the phonebook are not saved to a backend server. Fix this situation.
+
+## 2.13: The Phonebook step 8
+Extract the code that handles the communication with the backend into its own module by following the example shown earlier in this part of the course material.
+
+## 2.14: The Phonebook step 9
+
+Make it possible for users to delete entries from the phonebook. The deletion can be done through a dedicated button for each person in the phonebook list. You can confirm the action from the user by using the window.confirm method:
+
+## 2.17 window confirm feature screeshot
+
+The associated resource for a person in the backend can be deleted by making an HTTP DELETE request to the resource's URL. If we are deleting e.g. a person who has the id 2, we would have to make an HTTP DELETE request to the URL localhost:3001/persons/2. No data is sent with the request.
+
+You can make an HTTP DELETE request with the axios library in the same way that we make all of the other requests.
+
+> [!NOTE]
+> NB: You can't use the name delete for a variable because it's a reserved word in JavaScript. E.g. the following is not possible:
+
+```jsx
+// use some other name for variable!
+const delete = (id) => {
+  // ...
+}
+```
+
+## 2.15*: The Phonebook step 10
+
+Why is there a star in the exercise? See here for the explanation.
+
+Change the functionality so that if a number is added to an already existing user, the new number will replace the old number. It's recommended to use the HTTP PUT method for updating the phone number.
+
+If the person's information is already in the phonebook, the application can ask the user to confirm the action:
+
+## 2.18 screenshot alert confirmation
+
+# Exercises 2.16.-2.17.
+
+## 2.16: Phonebook step 11
+
+Use the improved error message example from part 2 as a guide to show a notification that lasts for a few seconds after a successful operation is executed (a person is added or a number is changed):
+
+successful green added screenshot
+
+## 2.17*: Phonebook step 12
+
+Open your application in two browsers. If you delete a person in browser 1 a short while before attempting to change the person's phone number in browser 2, you will get the following error messages:
+
+error message 404 not found when changing multiple browsers
+Fix the issue according to the example shown in promise and errors in part 2. Modify the example so that the user is shown a message when the operation does not succeed. The messages shown for successful and unsuccessful events should look different:
+
+error message shown on screen instead of in console feature add-on
+Note that even if you handle the exception, the first "404" error message is still printed to the console. But you should not see "Uncaught (in promise) Error".
+
+# Exercises 2.18.-2.20.
+
+## 2.18* Data for countries, step 1
+At https://studies.cs.helsinki.fi/restcountries/ you can find a service that offers a lot of information related to different countries in a so-called machine-readable format via the REST API. Make an application that allows you to view information from different countries.
+
+The user interface is very simple. The country to be shown is found by typing a search query into the search field.
+
+If there are too many (over 10) countries that match the query, then the user is prompted to make their query more specific:
+
+too many matches screenshot
+If there are ten or fewer countries, but more than one, then all countries matching the query are shown:
+
+matching countries in a list screenshot
+When there is only one country matching the query, then the basic data of the country (eg. capital and area), its flag and the languages spoken are shown:
+
+flag and additional attributes screenshot
+
+> [!NOTE]
+> NB: It is enough that your application works for most countries. Some countries, like Sudan, can be hard to support since the name of the country is part of the name of another country, South Sudan. You don't need to worry about these edge cases.
+
+## 2.19*: Data for countries, step 2
+There is still a lot to do in this part, so don't get stuck on this exercise!
+
+Improve on the application in the previous exercise, such that when the names of multiple countries are shown on the page there is a button next to the name of the country, which when pressed shows the view for that country:
+
+attach show buttons for each country feature
+In this exercise, it is also enough that your application works for most countries. Countries whose name appears in the name of another country, like Sudan, can be ignored.
+
+## 2.20*: Data for countries, step 3
+Add to the view showing the data of a single country, the weather report for the capital of that country. There are dozens of providers for weather data. One suggested API is https://openweathermap.org. Note that it might take some minutes until a generated API key is valid.
+
+weather report added feature
+If you use Open weather map, here is the description for how to get weather icons.
+
+> [!NOTE]
+> NB: In some browsers (such as Firefox) the chosen API might send an error response, which indicates that HTTPS encryption is not supported, although the request URL starts with http://. This issue can be fixed by completing the exercise using Chrome.
+
+> [!NOTE]
+>NB: You need an api-key to use almost every weather service. Do not save the api-key to source control! Nor hardcode the api-key to your source code. Instead use an environment variable to save the key.
+
+Assuming the api-key is 54l41n3n4v41m34rv0, when the application is started like so:
+
+```jsx
+export VITE_SOME_KEY=54l41n3n4v41m34rv0 && npm run dev // For Linux/macOS Bash
+($env:VITE_SOME_KEY="54l41n3n4v41m34rv0") -and (npm run dev) // For Windows PowerShell
+set "VITE_SOME_KEY=54l41n3n4v41m34rv0" && npm run dev // For Windows cmd.execopy
+you can access the value of the key from the import.meta.env object:
+```
+
+```jsx
+const api_key = import.meta.env.VITE_SOME_KEY
+// variable api_key now has the value set in startupcopy
+Note that you will need to restart the server to apply the changes.
+```
