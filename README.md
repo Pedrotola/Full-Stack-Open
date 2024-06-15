@@ -21,3 +21,10 @@
 3. Getting data from server
 4. Altering data in server
 5. Adding styles to React app
+
+## Part 3 - Programming a server with NodeJS and Express
+
+1. Node.js and Express
+2. Deploying app to Internet
+3. Saving data to MongoDB
+4. Validation and ESLint
