@@ -1,5 +1,6 @@
 # Link the GitHub - Render 
-[GitHub Part3](hhttps://github.com/Pedrotola/fullstackopen-part3/tree/main)
+[GitHub Part3](https://github.com/Pedrotola/fullstackopen-part3/tree/main)
+
 [Render Page](https://fullstackopen-part3-3xpf.onrender.com)
 
 # Exercises 3.1.-3.6.
