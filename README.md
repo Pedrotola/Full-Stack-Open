@@ -28,3 +28,11 @@
 2. Deploying app to Internet
 3. Saving data to MongoDB
 4. Validation and ESLint
+
+## Part 4 - Testing Express servers, users administration
+
+1. Structure of backend application, introduction to testing
+2. Testing the backend
+3. User administration
+4. Token authentication
+5. Legacy: Testing with Jest
