@@ -13,10 +13,10 @@ mongoose.set('strictQuery', false)
 logger.info('connecting to... ')
 
 mongoose.connect(config.MONGODB_URI).then(()=>{
-    logger.info('Connect to MongoDB')
+  logger.info('Connect to MongoDB')
 }).catch( error => {
-    logger.info(config.URL)
-    logger.error('error connecting to MongoDB', error.message)
+  logger.info(config.URL)
+  logger.error('error connecting to MongoDB', error.message)
 })
 
 app.use(cors())
