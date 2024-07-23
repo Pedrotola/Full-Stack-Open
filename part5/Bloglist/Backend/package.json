@@ -1,0 +1,38 @@
+{
+  "name": "bloglist",
+  "version": "1.0.0",
+  "description": "Blog List aplication",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint . --fix",
+    "test": "cross-env NODE_ENV=test node --test",
+    "start:test": "cross-env NODE_ENV=test node index.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongodb",
+    "eslint"
+  ],
+  "author": "Pedro Tola",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.3"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^2.3.0",
+    "eslint": "^9.5.0",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
+  }
+}
