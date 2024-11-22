@@ -52,3 +52,11 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 2. Many reducers
 3. Communicating with server in a Redux application
 4. React Query, useReducer and the context 
+   
+## Part7 - React router, custom hooks, styling apps with CSS and Webpack
+1. React router
+2. Custom hooks
+3. More about styles
+4. Webpack
+5. Class components: Miscellaneous
+6. Excersises: extending the bloglist
