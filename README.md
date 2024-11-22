@@ -46,3 +46,9 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 3. Testing React apps
 4. End to end testing: Playwright
 5. End to end testing: Cypress
+
+## Part 6 - Advanced state management
+1. Flux-architecture and Redux
+2. Many reducers
+3. Communicating with server in a Redux application
+4. React Query, useReducer and the context
