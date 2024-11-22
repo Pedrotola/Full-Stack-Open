@@ -51,4 +51,4 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 1. Flux-architecture and Redux
 2. Many reducers
 3. Communicating with server in a Redux application
-4. React Query, useReducer and the context
+4. React Query, useReducer and the context 
