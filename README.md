@@ -60,3 +60,11 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 4. Webpack
 5. Class components: Miscellaneous
 6. Excersises: extending the bloglist
+
+## Part 8 - GraphQL
+
+1. GraphQL-server
+2. React and GraphQL
+3. Database and user administration
+4. Login and update the cache
+5. Fragments and subscriptions
