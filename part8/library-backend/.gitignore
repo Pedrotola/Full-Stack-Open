@@ -1,0 +1,4 @@
+.env
+/node_modules/
+part8/phonebook-graphql-backend/.env
+package-lock.json

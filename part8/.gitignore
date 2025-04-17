@@ -1,0 +1,5 @@
+/graphql-phonebook-frontend/
+/phonebook-graphql-backend/
+library-backend/.env
+library-backend/node_modules/
+library-backend/package-lock.json
