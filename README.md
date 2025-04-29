@@ -69,7 +69,7 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 4. Login and update the cache
 5. Fragments and subscriptions
 
-Part 9 - TypeScript
+## Part 9 - TypeScript
 1. Background and introduction
 2. First steps with TypeScript
 3. Typing an Express app
