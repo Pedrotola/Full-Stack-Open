@@ -1,19 +1,27 @@
-//Diagnosis
+
 export interface Diagnosis{
     code: string,
     name: string,
     latin?: string
 }
-// Omit latin
+
 export type NonLatinDiagnosis = Omit<Diagnosis,'latin'>;
-//Patient
+
+export enum Gender{
+    Male = 'male',
+    Female = 'female', 
+    Other = 'other'
+}
+
 export interface Patient{
     id: string,
     name: string,
     dateOfBirth: string,
     ssn: string,
-    gender: string,
+    gender: Gender,
     occupation: string
 }
-//Omit "ssn": "090786-122X",
+
 export type NonSsnPatient = Omit<Patient, 'ssn'>;
+
+export type NewPatient = Omit<Patient, 'id'>;
